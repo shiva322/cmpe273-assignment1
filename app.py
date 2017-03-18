@@ -20,7 +20,7 @@ def get_doc(file_param):
     for i in param_list:
         if i not in '':
             temp = i.split(':')
-            config_dict[temp[0]] = str(temp[1].strip(' ').strip('"'))
+            config_dict[temp[0]] = temp[1].strip(' ').strip('"')
 
     if fileformat == 'json':
         response_json = app.response_class(response=json.dumps(config_dict, indent=4,
