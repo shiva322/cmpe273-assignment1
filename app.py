@@ -8,8 +8,11 @@ app = Flask(__name__)
 
 @app.route('/v1/<file_param>')
 def get_doc(file_param):
-    g = Github()
     #g = Github("3cf1ee123c0920bbb19405ab6393ca2e1351858e")#PersonalAccessToken
+    try :
+        g = Github()
+    except RateLimitExceededException :
+        return 'Limit Exceded. Retry after sometime'
 
     repo = g.get_user(__username__).get_repo(__reponame__)
     filename = file_param.split(".")[0]
