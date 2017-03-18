@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/v1/<file_param>')
 def get_doc(file_param):
-    g = Github("44d9fbafbdaeaed55e22401579eb74dce0eb521f")
+    g = Github("06d6f368c96632b159398a009bd4d0f4387d67f9")#PersonalAccessToken
 
     repo = g.get_user(__username__).get_repo(__reponame__)
     filename = file_param.split(".")[0]
